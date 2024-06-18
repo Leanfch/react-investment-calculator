@@ -1,20 +1,4 @@
-import { useState } from "react"
-
-export default function UserInput({}) {
-    const [userInput, setUserInput] = useState({
-        initialInvestment: 1000,
-        annualInvestment: 1200,
-        expectedReturn: 6,
-        duration: 10,
-    })
-
-    function handleChange(inputIdentifier, newValue) {
-        setUserInput((prevState) => ({
-            ...prevState,
-            [inputIdentifier]: newValue,
-        }))
-    }
-
+export default function UserInput({onChange, userInput}) {
     return (
         <section id="user-input">
             <div className="input-group">
@@ -25,7 +9,7 @@ export default function UserInput({}) {
                         value={userInput.initialInvestment}
                         required
                         onChange={(e) =>
-                            handleChange("initialInvestment", e.target.value)
+                            onChange("initialInvestment", e.target.value)
                         }
                     />
                 </p>
@@ -36,7 +20,7 @@ export default function UserInput({}) {
                         value={userInput.annualInvestment}
                         required
                         onChange={(e) =>
-                            handleChange("annualInvestment", e.target.value)
+                            onChange("annualInvestment", e.target.value)
                         }
                     />
                 </p>
@@ -49,7 +33,7 @@ export default function UserInput({}) {
                         value={userInput.expectedReturn}
                         required
                         onChange={(e) =>
-                            handleChange("expectedReturn", e.target.value)
+                            onChange("expectedReturn", e.target.value)
                         }
                     />
                 </p>
@@ -60,7 +44,7 @@ export default function UserInput({}) {
                         value={userInput.duration}
                         required
                         onChange={(e) =>
-                            handleChange("duration", e.target.value)
+                            onChange("duration", e.target.value)
                         }
                     />
                 </p>
